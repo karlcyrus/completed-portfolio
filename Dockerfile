@@ -1,7 +1,10 @@
 FROM wordpress:6.5-php8.2-apache
 
-# Copy any custom plugins or themes if needed
+# Copy your project into the container
 COPY . /var/www/html/
 
-# Give correct ownership (WordPress runs as www-data)
+# Set correct file permissions
 RUN chown -R www-data:www-data /var/www/html
+
+# Expose port 80 to make it accessible
+EXPOSE 80
